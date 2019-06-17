@@ -1,5 +1,8 @@
 package com.dima.springcourse;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class TestBean {
     private String name;
 
