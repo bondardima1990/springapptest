@@ -7,9 +7,42 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
     <bean id="testBean"
-          class="com.dima.springcourse.TestBean">
+          class="com.dima.springcourse.TestBean"
+          scope="prototype">
         <constructor-arg value="Dima"/>
+    </bean>
+
+    <bean id="classicalMusicBean"
+          class="com.dima.springcourse.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic">
+    </bean>
+
+    <bean id="rockMusicBean"
+          class="com.dima.springcourse.RockMusic">
+    </bean>
+
+    <bean id="rapMusicBean"
+          class="com.dima.springcourse.RapMusic">
+    </bean>
+
+    <bean id="musicPlayer"
+          class="com.dima.springcourse.MusicPlayer"
+          scope="prototype">
+        <property name="musicList">
+            <list>
+                <ref bean="classicalMusicBean"/>
+                <ref bean="rockMusicBean"/>
+                <ref bean="rapMusicBean"/>
+            </list>
+        </property>
+
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 
 </beans>
