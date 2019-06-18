@@ -9,11 +9,11 @@ public class ClassicalMusic implements Music {
     }
 
     public void doMyInit() {
-        System.out.println("Doing my initialization");
+        System.out.println("Doing my initialization in ClassicalMusic");
     }
 
     public void doMyDestroy() {
-        System.out.println("Doing my destruction");
+        System.out.println("Doing my destruction in ClassicalMusic");
     }
 
     @Override

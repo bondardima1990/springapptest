@@ -13,14 +13,14 @@
 
     <bean id="testBean"
           class="com.dima.springcourse.TestBean"
-          scope="prototype">
+          scope="prototype"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy">
         <constructor-arg value="Dima"/>
     </bean>
 
     <bean id="classicalMusicBean"
           class="com.dima.springcourse.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
           factory-method="getClassicalMusic">
     </bean>
 
